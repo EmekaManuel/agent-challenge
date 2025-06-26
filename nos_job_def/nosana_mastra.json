@@ -3,16 +3,27 @@
     {
       "id": "agents",
       "args": {
-        "gpu": true,
-        "image": "docker.io/yourusername/agent-challenge:latest",
+        "gpu": false,
+        "image": "docker.io/marrnuel/agent-challenge:latest",
         "expose": [
           {
-            "port": 8080
+            "port": 8080,
+            "health_checks": [
+              {
+                "path": "/health",
+                "type": "http",
+                "method": "GET",
+                "continuous": true,
+                "expected_status": 200
+              }
+            ]
           }
         ],
-        "entrypoint": [
-          "/bin/sh"
-        ]
+        "env": {
+          "OPENAI_API_KEY": "${OPENAI_API_KEY}",
+          "LLM_PROVIDER": "openai",
+          "NODE_ENV": "production"
+        }
       },
       "type": "container/run"
     }
@@ -20,7 +31,7 @@
   "meta": {
     "trigger": "dashboard",
     "system_requirements": {
-      "required_vram": 4
+      "required_vram": 0
     }
   },
   "type": "container",
