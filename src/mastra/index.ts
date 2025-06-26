@@ -1,18 +1,34 @@
 import { Mastra } from "@mastra/core/mastra";
 import { PinoLogger } from "@mastra/loggers";
-import { weatherAgent } from "./agents/weather-agent/weather-agent"; // This can be deleted later
-import { weatherWorkflow } from "./agents/weather-agent/weather-workflow"; // This can be deleted later
-import { yourAgent } from "./agents/your-agent/your-agent"; // Build your agent here
+
+import { travelPlannerAgent } from "./agents/travel-planner-agent/travel-planner-agent";
+import { smartTravelPlannerWorkflow } from "./agents/travel-planner-agent/travel-planner-workflow";
 
 export const mastra = new Mastra({
-	workflows: { weatherWorkflow }, // can be deleted later
-	agents: { weatherAgent, yourAgent },
-	logger: new PinoLogger({
-		name: "Mastra",
-		level: "info",
-	}),
-	server: {
-		port: 8080,
-		timeout: 10000,
-	},
+  workflows: {
+    smartTravelPlannerWorkflow,
+  },
+  agents: {
+    travelPlannerAgent,
+  },
+  logger: new PinoLogger({
+    name: "SmartTravelPlanner",
+    level: "info",
+  }),
+  server: {
+    port: 8080,
+    timeout: 30000, // Increased timeout for complex travel planning
+  },
 });
+
+console.log("🚀 Smart Travel Planner for Nosana Challenge");
+console.log("📋 Available Agents:");
+console.log(
+  "  - travelPlannerAgent: Advanced travel planning with multi-agent workflow"
+);
+console.log("📋 Available Workflows:");
+console.log(
+  "  - smartTravelPlannerWorkflow: Complete travel itinerary generation"
+);
+
+console.log("🌐 Server starting on port 8080...");
