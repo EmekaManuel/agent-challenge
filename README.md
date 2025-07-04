@@ -257,7 +257,7 @@ Use this `nosana_job.json` for deployment:
 
 ## Demo Video
 
-[![Smart Travel Planner Demo](./assets/video-thumbnail.jpg)](https://youtu.be/your-video-link)
+[![Smart Travel Planner Demo](./assets/video-thumbnail.jpg)](loom.com/share/4d44eb51c3294cab9a4f48c719323de1)
 
 **Watch the 3-minute demo showcasing:**
 
@@ -403,7 +403,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - **Nosana Job**: https://dashboard.nosana.com/jobs/2cp9iDr9z7ooVovPmVnhivNJm9becyETQo5aNSdN8pDe
 - **Host Address**: https://dashboard.nosana.com/host/C1NQvHFtoHLpZPPHzwo5G21HAUUa1UqgwqESjEuxLrKa
 - **Deployer Address**: https://dashboard.nosana.com/deployer/A2r8NUKUEfrgRQgkrD39FEqdMQ1An7vh6WhrVL28kUna
-- **Demo Video**: https://youtu.be/your-video-link
+- **Demo Video**: https://loom.com/share/4d44eb51c3294cab9a4f48c719323de1
 - **Social Media Post**: [Your Twitter/X Post Link]
 
 **Built with ❤️ for the Nosana ecosystem | Challenge Submission #NosanaAgentChallenge**
