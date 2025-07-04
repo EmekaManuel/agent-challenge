@@ -64,8 +64,8 @@ graph TB
 **1. Clone the repository:**
 
 ```bash
-git clone https://github.com/yourusername/smart-travel-planner-nosana.git
-cd smart-travel-planner-nosana
+git clone https://github.com/EmekaManuel/agent-challenge.git
+cd agent-challenge
 ```
 
 **2. Install dependencies:**
@@ -390,9 +390,15 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - **Open-Meteo** for free weather API access
 - **OpenAI** for powerful language models
 
+## Support & Contact
+
+- **GitHub Issues**: [Report bugs or request features](https://github.com/EmekaManuel/agent-challenge/issues)
+- **Discord**: Join [Nosana Discord](https://discord.gg/nosana) for technical support
+- **Twitter**: Follow [@nosana_ai](https://x.com/nosana_ai) for updates
+
 ## Challenge Submission Links
 
-- **GitHub Repository**: https://github.com/yourusername/smart-travel-planner-nosana
+- **GitHub Repository**: https://github.com/EmekaManuel/agent-challenge
 - **Docker Hub**: https://hub.docker.com/r/marrnuel/agent-challenge
 - **Nosana Job**: https://dashboard.nosana.com/jobs/2cp9iDr9z7ooVovPmVnhivNJm9becyETQo5aNSdN8pDe
 - **Host Address**: https://dashboard.nosana.com/host/C1NQvHFtoHLpZPPHzwo5G21HAUUa1UqgwqESjEuxLrKa
