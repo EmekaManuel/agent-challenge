@@ -4,8 +4,8 @@
 
 > **Advanced AI travel planning agent with multi-agent workflows for comprehensive itinerary generation**
 
-[![Docker](https://img.shields.io/badge/Docker-Available-blue)](https://hub.docker.com/r/yourusername/smart-travel-planner)
-[![Nosana](https://img.shields.io/badge/Deployed%20on-Nosana-green)](https://dashboard.nosana.com)
+[![Docker](https://img.shields.io/badge/Docker-Available-blue)](https://hub.docker.com/r/marrnuel/agent-challenge)
+[![Nosana](https://img.shields.io/badge/Deployed%20on-Nosana-green)](https://dashboard.nosana.com/jobs/2cp9iDr9z7ooVovPmVnhivNJm9becyETQo5aNSdN8pDe)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Challenge](https://img.shields.io/badge/Nosana-Challenge%20Submission-purple)](https://earn.superteam.fun/agent-challenge)
 
@@ -148,16 +148,16 @@ curl http://localhost:8080/health
 
 ```bash
 # Tag for your registry
-docker tag smart-travel-planner:latest yourusername/smart-travel-planner:latest
+docker tag smart-travel-planner:latest marrnuel/agent-challenge:latest
 
 # Login and push
 docker login
-docker push yourusername/smart-travel-planner:latest
+docker push marrnuel/agent-challenge:latest
 ```
 
 ### Docker Hub
 
-The official image is available at: `yourusername/smart-travel-planner:latest`
+The official image is available at: `marrnuel/agent-challenge:latest`
 
 ## Nosana Deployment
 
@@ -179,9 +179,7 @@ nosana address
 **3. Deploy using the job definition:**
 
 ```bash
-# Edit nosana_job.json with your Docker image
-# Add your OpenAI API key to the environment variables
-
+# Use the nosana_job.json configuration below
 nosana job post --file nosana_job.json --market nvidia-3060 --timeout 30
 ```
 
@@ -192,17 +190,70 @@ nosana job list
 # Visit https://dashboard.nosana.com to see your running job
 ```
 
+### Job Configuration
+
+Use this `nosana_job.json` for deployment:
+
+```json
+{
+  "ops": [
+    {
+      "id": "agents",
+      "args": {
+        "gpu": false,
+        "image": "docker.io/marrnuel/agent-challenge:latest",
+        "expose": [
+          {
+            "port": 8080,
+            "health_checks": [
+              {
+                "path": "/health",
+                "type": "http",
+                "method": "GET",
+                "continuous": true,
+                "expected_status": 200
+              }
+            ]
+          }
+        ],
+        "env": {
+          "OPENAI_API_KEY": "${OPENAI_API_KEY}",
+          "LLM_PROVIDER": "openai",
+          "NODE_ENV": "production"
+        }
+      },
+      "type": "container/run"
+    }
+  ],
+  "meta": {
+    "trigger": "dashboard",
+    "system_requirements": {
+      "required_vram": 0
+    }
+  },
+  "type": "container",
+  "version": "0.1"
+}
+```
+
 ### Using Nosana Dashboard
 
 1. Visit [Nosana Dashboard](https://dashboard.nosana.com/deploy)
 2. Connect your **Phantom wallet**
-3. Copy the contents of `nosana_job.json`
-4. Update the **image name** and **API key**
+3. Copy the job configuration above
+4. Update the **OPENAI_API_KEY** environment variable
 5. Choose appropriate **GPU** and click **Deploy**
 
 ### Live Demo
 
-🚀 **Deployed on Nosana**: [Your Nosana URL Here]
+🚀 **Deployed on Nosana**: [View Job Status](https://dashboard.nosana.com/jobs/2cp9iDr9z7ooVovPmVnhivNJm9becyETQo5aNSdN8pDe)
+
+**Deployment Details:**
+
+- **Job ID**: `2cp9iDr9z7ooVovPmVnhivNJm9becyETQo5aNSdN8pDe`
+- **Host**: [C1NQvHFtoHLpZPPHzwo5G21HAUUa1UqgwqESjEuxLrKa](https://dashboard.nosana.com/host/C1NQvHFtoHLpZPPHzwo5G21HAUUa1UqgwqESjEuxLrKa)
+- **Deployer**: [A2r8NUKUEfrgRQgkrD39FEqdMQ1An7vh6WhrVL28kUna](https://dashboard.nosana.com/deployer/A2r8NUKUEfrgRQgkrD39FEqdMQ1An7vh6WhrVL28kUna)
+- **Docker Image**: [marrnuel/agent-challenge:latest](https://hub.docker.com/r/marrnuel/agent-challenge)
 
 ## Demo Video
 
@@ -328,14 +379,6 @@ pnpm run test
 - **Attractions Finder**: Interest-based activity curation
 - **Itinerary Planner**: Day-by-day scheduling and optimization
 
-## Contributing
-
-1. **Fork the repository**
-2. **Create a feature branch**
-3. **Make your changes**
-4. **Add tests** for new functionality
-5. **Submit a pull request**
-
 ## License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
@@ -347,30 +390,14 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - **Open-Meteo** for free weather API access
 - **OpenAI** for powerful language models
 
-## Support & Contact
-
-- **GitHub Issues**: [Report bugs or request features](https://github.com/yourusername/smart-travel-planner-nosana/issues)
-- **Discord**: Join [Nosana Discord](https://discord.gg/nosana) for technical support
-- **Twitter**: Follow [@nosana_ai](https://x.com/nosana_ai) for updates
-
 ## Challenge Submission Links
 
 - **GitHub Repository**: https://github.com/yourusername/smart-travel-planner-nosana
-- **Docker Hub**: https://hub.docker.com/r/yourusername/smart-travel-planner
+- **Docker Hub**: https://hub.docker.com/r/marrnuel/agent-challenge
+- **Nosana Job**: https://dashboard.nosana.com/jobs/2cp9iDr9z7ooVovPmVnhivNJm9becyETQo5aNSdN8pDe
+- **Host Address**: https://dashboard.nosana.com/host/C1NQvHFtoHLpZPPHzwo5G21HAUUa1UqgwqESjEuxLrKa
+- **Deployer Address**: https://dashboard.nosana.com/deployer/A2r8NUKUEfrgRQgkrD39FEqdMQ1An7vh6WhrVL28kUna
 - **Demo Video**: https://youtu.be/your-video-link
-- **Nosana Deployment**: [Your Nosana Dashboard Link]
 - **Social Media Post**: [Your Twitter/X Post Link]
-
-## Important Notes
-
-- **Ensure your agent doesn't expose sensitive data**
-- **Test thoroughly before submission**
-- **Keep your Docker images lightweight**
-- **Document all dependencies clearly**
-- **Make your code reproducible**
-- **Only one submission per participant**
-- **Submissions that do not compile, and do not meet the specified requirements, will not be considered**
-
----
 
 **Built with ❤️ for the Nosana ecosystem | Challenge Submission #NosanaAgentChallenge**
