@@ -1,13 +1,6 @@
 # 🧳 Smart Travel Planner - Nosana Builders Challenge
 
-![Smart Travel Planner](./assets/travel-planner-banner.jpg)
-
-> **Advanced AI travel planning agent with multi-agent workflows for comprehensive itinerary generation**
-
-[![Docker](https://img.shields.io/badge/Docker-Available-blue)](https://hub.docker.com/r/marrnuel/agent-challenge)
-[![Nosana](https://img.shields.io/badge/Deployed%20on-Nosana-green)](https://dashboard.nosana.com/jobs/2cp9iDr9z7ooVovPmVnhivNJm9becyETQo5aNSdN8pDe)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Challenge](https://img.shields.io/badge/Nosana-Challenge%20Submission-purple)](https://earn.superteam.fun/agent-challenge)
+[Advanced AI travel planning agent with multi-agent workflows for comprehensive itinerary generation - Demo Video](loom.com/share/4d44eb51c3294cab9a4f48c719323de1)
 
 ## Project Overview
 
